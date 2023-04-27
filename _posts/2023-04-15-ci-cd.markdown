@@ -1,0 +1,30 @@
+---
+layout: post
+title:  ":book: ci/cd"
+date:   2023-04-15 00:42:07 +0300
+categories: jekyll update
+---
+
+***Путь сборки: от push до deploy***
+
+- push в удаленный репозиторий
+- merge в мастер
+- сборка Jenkins/TeamCity (при использовании Maven или Gradle)
+- закачка билда в репозиторий artifactory (от jfrog.com)
+- деплой на сервер: Ansible, Udeploy, Bamboo или что то внутреннее
+
+github flow (посмотреть разные flow) github actions
+
+- релиз не связан с деплоем на прод
+- мажор/минор/патч - это скоупы релиза
+- релиз - мердж ветки в мастер и создание тега
+
+***Continuous integration vs Continuous delivery***
+
+- Continuous integration is focused on automatically building and testing code
+  **as compared to**
+
+ядро это CI - непрерывная интеграция
+
+- Continuous delivery, which automates the entire software release process up to production
+  непрерывное развертывание/доставка
