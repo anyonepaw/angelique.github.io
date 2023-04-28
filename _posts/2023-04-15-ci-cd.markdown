@@ -28,3 +28,9 @@ github flow (посмотреть разные flow) github actions
 
 - Continuous delivery, which automates the entire software release process up to production
   непрерывное развертывание/доставка
+
+***Какие бывают подходы ведения Git-репозиториев?***
+- GitFlow
+- GitHubFlow
+- GitLabFlow
+- Trunk-Based Development
