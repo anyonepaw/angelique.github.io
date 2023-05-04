@@ -5,6 +5,8 @@ date:   2023-04-15 00:42:07 +0300
 categories: jekyll update
 ---
 
+CI/CD - жизненный цикл проекта
+![Untitled.png](..%2F..%2F..%2FDownloads%2FUntitled.png)
 ***Путь сборки: от push до deploy***
 
 - push в удаленный репозиторий
@@ -29,8 +31,20 @@ github flow (посмотреть разные flow) github actions
 - Continuous delivery, which automates the entire software release process up to production
   непрерывное развертывание/доставка
 
+Continuous integration
+[Untitled.png](..%2Fassets%2Fimages%2FUntitled.png)
+
+на примере Git!
 ***Какие бывают подходы ведения Git-репозиториев?***
 - GitFlow
 - GitHubFlow
 - GitLabFlow
 - Trunk-Based Development
+
+что такое пайплайн и как его писать?
+- подготовительный этап
+- сборка докер образа
+- пуш докер образа в наше хранилище
+- стадия деплоя в kuber
+
+недостаточно просто внести файл Jenkinsfile в github, нужно настроить его еще и в дженкинсе
