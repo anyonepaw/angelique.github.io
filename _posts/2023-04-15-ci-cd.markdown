@@ -1,12 +1,14 @@
 ---
 layout: post
-title:  ":book: ci/cd"
+title:  ":book: CI/CD process: breaking down the steps"
 date:   2023-04-15 00:42:07 +0300
 categories: jekyll update
 ---
 
 CI/CD - жизненный цикл проекта
-![Untitled.png](..%2F..%2F..%2FDownloads%2FUntitled.png)
+
+<img alt="cicd-lifecycle" src="/assets/images/Untitled.png" width="716" height="367"/>
+
 ***Путь сборки: от push до deploy***
 
 - push в удаленный репозиторий
@@ -26,13 +28,18 @@ github flow (посмотреть разные flow) github actions
 - Continuous integration is focused on automatically building and testing code
   **as compared to**
 
+CI (Continuous Integration, непрерывная интеграция) – начальная стадия «конвейера» по сборке кода и загрузке собранного ПО в среду разработки.
+
 ядро это CI - непрерывная интеграция
 
 - Continuous delivery, which automates the entire software release process up to production
   непрерывное развертывание/доставка
 
-Continuous integration
-[Untitled.png](..%2Fassets%2Fimages%2FUntitled.png)
+<img alt="ci-lifecycle" src="/assets/images/IMG_99731.jpg" width="1000" height="1100"/>
+
+CD (Continuous delivery, непрерывная поставка) – является продолжением CI. В этой практике производится автоматизированное развертывание на тестовую среду продукта и разнообразные тесты над ним.
+
+<img alt="ci-lifecycle" src="/assets/images/IMG_99741.jpg" width="1000" height="1100"/>
 
 на примере Git!
 ***Какие бывают подходы ведения Git-репозиториев?***
