@@ -2,7 +2,8 @@
 layout: post
 title:  ":book: CI/CD process: breaking down the steps"
 date:   2023-04-15 00:42:07 +0300
-categories: jekyll update
+categories: DevOps
+tags: CI/CD Guideline
 ---
 
 CI/CD - жизненный цикл проекта
@@ -45,6 +46,7 @@ CD (Continuous delivery, непрерывная поставка) – являе
 ***Какие бывают подходы ведения Git-репозиториев?***
 - GitFlow
 - GitHubFlow
+Непосредственно связан с непрерывной поставкой
 - GitLabFlow
 - Trunk-Based Development
 
