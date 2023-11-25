@@ -82,13 +82,14 @@ RowSet
 И, хорошо, если проект небольшой, с парой-тройкой бизнес-моделей, но что если таких моделей много больше? (даже в рамках микросервиса)  
 
 <img alt="jdbc_api" src="/assets/images/several_tables.jpg" width="716" height="367"/>
-
+> <sub> Кольца смерти </sub>
 
 Таким образом мы получаем примерно такое полотно запроса:
 
 
 и это только чтобы достать один объект со связями. А если у нас таких сотни? Это достаточно много строк кода, даже с немногословным JDBC
 
+http://spring-projects.ru/projects/spring-data/
 
 И вот тут нам нужен другой подход:
 
@@ -104,7 +105,7 @@ Object-Relational Mapping, то есть (от слова **map**, сопост�
 Все библиотеки, как всегда, подключены в spring-boot-parent из коробки.
 
 <img alt="java_island" src="/assets/images/Jakarta.jpg" width="816" height="367"/>
-> <sub>Кстати, есть такая книга - [Правила выживания в Джакарте 🏝️](https://www.mann-ivanov-ferber.ru/books/pravila-vyzivaniia-v-dzakarte-new/). Я ее не читала:), но как же название здесь в тему <3</sub>
+> <sub>Кстати, есть такая книга - [Правила выживания в Джакарте 🏝️](https://www.mann-ivanov-ferber.ru/books/pravila-vyzivaniia-v-dzakarte-new/)</sub>
 
 JPA представляет собой аннотации, И вот Hibernate как раз является одной из реализаций спецификации JPA.
 
@@ -112,6 +113,8 @@ JPA представляет собой аннотации, И вот Hibernate 
 
 
 <img alt="entity" src="/assets/images/entity.jpg" width="800" height="470"/>
+
+@Column (insertable=false, updatable=false)
 
 Вместе с Jakarta появляется еще одна стратегия генерации
 
@@ -123,12 +126,18 @@ Spring Data JPA - это один из «подпроектов» проекта
  
 Entity Manager
 
-Criteria API
+Когда мы работаем с EntityManager - по сути, мы создаем Session, создается сессия для работы с базой и создается такая вещь как PersistanceContext
+https://www.baeldung.com/jpa-entities-serializable
 
+Criteria API
+https://www.bychkov.name/java-ee-tutorial/persistence-criteria003.html
+
+Specification https://habr.com/ru/companies/rshb/articles/521220/
 Query DSL
 
 JPQL
 
+https://spring.io/blog/2011/04/26/advanced-spring-data-jpa-specifications-and-querydsl
 
 
 
@@ -137,9 +146,9 @@ JPQL
 https://javarush.com/groups/posts/1952-vvedenie-v-sql
 
 [Как устроены базы данных. Highload Junior](https://habr.com/ru/companies/oleg-bunin/articles/358984/)
+[Spring Data JDBC](https://habr.com/ru/companies/otus/articles/531332/)
+[Андрей Беляев](https://www.youtube.com/watch?v=RktwrdJ0_vc)
 
 
 
-
-
-Ваша, выжившая, с помощью своего мануала, в Джакарте, Анжелика
+Ваша, выжившая, в Джакарте, Анжелика
