@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  ":book: CI/CD process: breaking down the steps"
+title:  ":book: CI/CD process - breaking down the steps"
 date:   2023-04-15 00:42:07 +0300
 categories: DevOps
 tags: CI/CD Guideline
