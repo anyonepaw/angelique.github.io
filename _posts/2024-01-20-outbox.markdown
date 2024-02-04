@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  ":book: outbox for microservices"
-date:   2023-04-15 00:42:07 +0300
+title:  ":book: Angelique & Outbox for microservices"
+date: 2024-01-20 00:42:07 +0300
 categories: develop
 tags: outbox
 ---
