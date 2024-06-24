@@ -1,7 +1,29 @@
 ---
 layout: post
-title:  ":book: Angelique and outbox for microservices"
+title:  ":book: Outbox pattern for microservices"
 date: 2024-01-20 00:42:07 +0300
 categories: develop
-tags: outbox
+tags: pattern
 ---
+
+Микросервисный паттерн: Event-driven architecture (Событийно-ориентированная архитектура)
+
+An e-commerce application that uses this approach would work as follows:
+
+The Order Service creates an Order in a pending state and publishes an OrderCreated event.
+The Customer Service receives the event and attempts to reserve credit for that Order. It then publishes either a Credit Reserved event or a CreditLimitExceeded event.
+The Order Service receives the event from the Customer Service and changes the state of the order to either approved or cancelled
+
+Связанные паттерны:
+- The Database per Service pattern creates the need for this pattern
+- The following patterns are ways to atomically update state and publish events:
+  - Event sourcing
+  - **Transactional Outbox**
+  - Database triggers
+  - Transaction log tailing
+
+
+#### **Источники:**
+
+https://microservices.io/patterns/data/event-driven-architecture.html
+https://www.youtube.com/watch?v=EYtg3WiGHSU
