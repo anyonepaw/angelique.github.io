@@ -27,14 +27,14 @@ tags: pattern
 
 Этот паттерн играет роль "передержки" сообщений (или "очереди на отправку") на случай, если сторона-получатель будет недоступна.
 
-![pattern_outbox.jpg](../assets/images/pattern_outbox.jpg)
+<img alt="pattern_outbox" src="/assets/images/pattern_outbox.jpg" width="700" height="200"/>
+
 
 # _Transactional Outbox_
 А есть **Транзакционный аутбокс**, который предназначен не сколько для гарантии доставки, сколько для сохранения консистентности данных
 между двумя сервисами, точнее, чтобы сообщение-событие (обычно это история обработки событий), которое пришло в сервис А сделало два действия: сохранилось у него и точно дошло до сервиса B.
 
-![pattern_trx_outbox.jpg](../assets/images/pattern_trx_outbox.jpg)
-
+<img alt="pattern_trx_outbox" src="/assets/images/pattern_trx_outbox.jpg" width="700" height="400"/>
 
 
 Для этого мы записываем сообщение к себе в базу и в таблицу Outbox в транзакции, поэтому в случае перебоя с базой, сообщение полностью откатится: 
@@ -43,10 +43,10 @@ tags: pattern
 
 А как теряется эта ваша консистентность? Очень просто:
 
-![lost_consistency_1.jpg](../assets/images/lost_consistency_1.jpg)
+<img alt="lost_consistency_1" src="/assets/images/lost_consistency_1.jpg" width="800" height="150"/>
 Вот недоступен брокер (или внешний сервис) / ошибка отправки. В базу A сохранили, а в сервис B сообщение не получилось доставить. Рассинхрон.
 
-![lost_consistency_2.jpg](../assets/images/lost_consistency_2.jpg)
+<img alt="lost_consistency_2" src="/assets/images/lost_consistency_2.jpg" width="800" height="150"/>
 Вот недоступна база. Отправили сообщение, но сами о нем не знаем.
 
 **Ошибка в одной из этих операций может привести к неконсистентным данным.**
@@ -59,8 +59,7 @@ Transactional Outbox - паттерн для обеспечения гарант
 
 Да, аналогично с брокером сообщений:
 
-![pattern_trx_outbox_broker.jpg](../assets/images/pattern_trx_outbox_broker.jpg)
-
+<img alt="pattern_trx_outbox_broker" src="/assets/images/pattern_trx_outbox_broker.jpg" width="800" height="340"/>
 
 Вместо того, чтобы отправить сообщение напрямую, наш **продьюсер** забирает данные из таблицы Outbox, которая синхронизирована с таблицей
 нашего сервиса, и отдает брокеру подготовленные сообщения на отправку. И состояние сохранилось и публикацию совершили.
@@ -71,7 +70,7 @@ Kafka называется "at-least-once", нестрогая доставка 
 сообщения получателю, оставляет его у себя в статусе "В ПРОЦЕССЕ", пока отправщик в конце концов не добьется
 успешного OK или ACK (от брокера) и не обновит у себя статус "ОТПРАВЛЕНО".
 
-![kafka_statuses.png](../assets/images/kafka_statuses.png)
+<img alt="kafka_statuses" src="/assets/images/kafka_statuses.png" width="800" height="340"/>
 
 Вроде бы все четко: сообщение отправляем, не отправилось, пробуем снова, рано 
 или поздно сообщение будет получено внешним сервисом.
@@ -80,7 +79,7 @@ Kafka называется "at-least-once", нестрогая доставка 
 но неожиданно получаем ошибку, откатанную обратно транзакцию, но сообщения не помечены статусом "ОТПРАВЛЕНО",
 и наш исполнитель снова зайдет забирать эти сообщения! И вот получателю улетает дубль..
 
-![outbox_fail.jpg](../assets/images/outbox_fail.jpg)
+<img alt="outbox_fail" src="/assets/images/outbox_fail.jpg" width="450" height="450"/>
 
 В этом обновлении отправленных сообщений у Outbox и кроется уязвимое место шаблона.
 
