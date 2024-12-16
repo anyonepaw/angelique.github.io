@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  ":book: Kafka - developer's guideline"
+title:  ":book: Kafka - developer's notes"
 date: 2024-11-16 15:50:34 +0300
 categories: develop
 tags: pattern
